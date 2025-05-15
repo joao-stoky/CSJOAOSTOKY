@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalhes da Empresa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      color: #000000;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      color: #0072ff;
+      text-align: center;
+    }
+    .card p {
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .bloco {
+      margin-bottom: 40px;
+    }
+    .bloco h3 {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 24px;
+      color: #0072ff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .voltar {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #0072ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .voltar:hover {
+      text-decoration: underline;
+    }
+    .subiu {
+      background-color: #2ecc71;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .caiu {
+      background-color: #e74c3c;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .descentralizado {
+      background-color: #2ecc71;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .centralizado {
+      background-color: #f1c40f;
+      color: #000000;
+      font-weight: bold;
+    }
+    .sim {
+      background-color: #f1c40f;
+      color: #000000;
+      font-weight: bold;
+    }
+    .nao {
+      background-color: #2ecc71;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .sim2 {
+      background-color: #2ecc71;
+      color: #000000;
+      font-weight: bold;
+    }
+    .nao2 {
+      background-color: #f1c40f;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* Tema escuro */
+   body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  /* Sombra mais marcada para destacar no fundo escuro */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+body.dark .bloco h3 {
+  background-color: #1e1e1e;
+  color: #66aaff;
+  /* Sombra mais marcada */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+body.dark .dashboard {
+  /* Fundo do container principal também escurecido */
+  background-color: #121212;
+}
+
+/* Link voltar */
+body.dark .voltar {
+  color: #66aaff;
+}
+
+/* Se quiser, pode aplicar sombra também ao container geral */
+body.dark .dashboard > div {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+    /* Botão tema */
+    #btnTema {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      padding: 8px 12px;
+      background-color: #0072ff;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+    #btnTema:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btnTema">Alternar Tema</button>
+
+  <div class="dashboard">
+    <a href="index.html" class="voltar">← Voltar para a lista</a>
+    <h1 id="titulo">Detalhes da Empresa</h1>
+    <div id="dashboard"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nomeEmpresa = params.get("empresa");
+    if (!nomeEmpresa) {
+      document.getElementById("dashboard").innerHTML = "<p style='color:red;'>Nome da empresa não fornecido.</p>";
+      throw new Error("Nome da empresa não fornecido.");
+    }
+
+    document.getElementById("titulo").textContent = nomeEmpresa;
+    document.title = nomeEmpresa;
+
+    const csvUrl1 = "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=1336444748";
+    const csvUrl2 = "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=1842256029";
+
+    function parseCSV(csv) {
+      return csv.trim().split("\n").map(line => line.split(",").map(c => c.replace(/"/g, "").trim()));
+    }
+
+    Promise.all([fetch(csvUrl1).then(r => r.text()), fetch(csvUrl2).then(r => r.text())])
+      .then(([csv1, csv2]) => {
+        const linhas1 = parseCSV(csv1);
+        const linhas2 = parseCSV(csv2);
+
+        const cabecalhos1 = linhas1[0];
+        const registros1 = linhas1.slice(1);
+        const dadosEmpresa1 = registros1.find(row => row[1] === nomeEmpresa);
+
+        const cabecalhos2 = linhas2[0];
+        const registros2 = linhas2.slice(1);
+        const dadosEmpresa2 = registros2.find(row => row[1] === nomeEmpresa);
+
+        if (!dadosEmpresa1 && !dadosEmpresa2) {
+          document.getElementById("dashboard").innerHTML = "<p style='color:red;'>Empresa não encontrada nas abas.</p>";
+          return;
+        }
+
+        const dashboard = document.getElementById("dashboard");
+
+        const blocos1 = [
+          { titulo: "DADOS", indices: [0, 1, 2, 3, 7, 8, 9, 10] },
+          { titulo: "INFORMAÇÕES RELEVANTES", indices: [24, 19] },
+          { titulo: "", indices: [40] },
+          { titulo: "CONTRATO", indices: [11, 12, 13, 18] },
+          { titulo: "TRAVEL MANAGER", indices: [14, 15, 16, 17] },
+          { titulo: "PRODUTOS ONFLY", indices: [20, 36, 21, 37, 22, 38, 23, 39] },
+          { titulo: "HEALTH SCORE", indices: [30, 26, 27, 28] },
+          { titulo: "GMV", indices: [6, 31, 32, 33, 34] },
+          { titulo: "OPORTUNIDADES", indices: [6, 31, 32, 33, 34] },
+        ];
+
+        const blocos2 = [
+          { titulo: "Bugs Mapeados", indices: [2, 3, 4, 5, 6] },
+        ];
+
+        function criarBlocos(blocos, cabecalhos, dadosEmpresa) {
+          blocos.forEach(bloco => {
+            const container = document.createElement("div");
+            container.className = "bloco";
+
+            if (bloco.titulo.trim() !== "") {
+              const titulo = document.createElement("h3");
+              titulo.textContent = bloco.titulo;
+              container.appendChild(titulo);
+            }
+
+            const grid = document.createElement("div");
+            grid.className = "grid";
+
+            bloco.indices.forEach(i => {
+              if (cabecalhos[i]) {
+                const cabecalho = cabecalhos[i];
+                const valor = dadosEmpresa[i];
+
+                const card = document.createElement("div");
+                card.className = "card";
+
+                const valorUpper = valor ? valor.toString().trim().toUpperCase() : "";
+                const cabecalhoUpper = cabecalho.trim().toUpperCase();
+
+                if (cabecalhoUpper === "HEALTH SCORE STATUS") {
+                  if (valorUpper === "SUBIU") card.classList.add("subiu");
+                  else if (valorUpper === "CAIU") card.classList.add("caiu");
+                }
+
+                if (i === 19) {
+                  if (valorUpper === "DESCENTRALIZADO") card.classList.add("descentralizado");
+                  else if (valorUpper === "CENTRALIZADO") card.classList.add("centralizado");
+                }
+
+                if (i === 24) {
+                  if (valorUpper === "SIM") card.classList.add("sim");
+                  else if (valorUpper === "NÃO") card.classList.add("nao");
+                }
+
+                if (i === 36) {
+                  if (valorUpper === "SIM") card.classList.add("sim2");
+                  else if (valorUpper === "NÃO") card.classList.add("nao2");
+                }
+
+                if (i === 37) {
+                  if (valorUpper === "SIM") card.classList.add("sim2");
+                  else if (valorUpper === "NÃO") card.classList.add("nao2");
+                }
+
+                if (i === 38) {
+                  if (valorUpper === "SIM") card.classList.add("sim2");
+                  else if (valorUpper === "NÃO") card.classList.add("nao2");
+                }
+
+                if (i === 39) {
+                  if (valorUpper === "SIM") card.classList.add("sim2");
+                  else if (valorUpper === "NÃO") card.classList.add("nao2");
+                }
+
+                // Função simples para detectar se o valor parece ser um link
+function isURL(text) {
+  return /^https?:\/\/.+/.test(text);
+}
+
+let valorHTML = valor;
+if (valor && isURL(valor)) {
+  valorHTML = `<a href="${valor}" target="_blank" rel="noopener noreferrer">${valor}</a>`;
+} else {
+  valorHTML = valor || '';
+}
+
+card.innerHTML = `<h2>${cabecalho}</h2><p>${valorHTML}</p>`;
+
+                grid.appendChild(card);
+              }
+            });
+
+            container.appendChild(grid);
+            dashboard.appendChild(container);
+          });
+        }
+
+        if (dadosEmpresa1) criarBlocos(blocos1, cabecalhos1, dadosEmpresa1);
+        if (dadosEmpresa2) criarBlocos(blocos2, cabecalhos2, dadosEmpresa2);
+      })
+      .catch(error => {
+        document.getElementById("dashboard").innerHTML = "<p style='color:red;'>Erro ao carregar os dados.</p>";
+        console.error("Erro ao carregar os CSVs:", error);
+      });
+
+    // Botão tema dark
+    const btnTema = document.getElementById("btnTema");
+    btnTema.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("tema", "dark");
+      } else {
+        localStorage.setItem("tema", "light");
+      }
+    });
+
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("tema") === "dark") {
+        document.body.classList.add("dark");
+      }
+    });
+  </script>
+</body>
+</html>

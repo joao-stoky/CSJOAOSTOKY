@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Satisfação dos Clientes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+ 
+}
+
+
+
+
+    .dashboard {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Linha superior com título e imagem */
+    .cabecalho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .cabecalho-texto {
+      flex: 1;
+    }
+
+    .cabecalho h1 {
+      margin: 0;
+      color: #0072ff;
+    }
+
+    .cabecalho h2 {
+      margin: 5px 0 0;
+      color: #333;
+    }
+
+    .perfil-frame {
+      width: 120px;
+      height: 120px;
+      border: 4px solid #0072ff;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .perfil-frame img {
+  width: 105%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+
+}
+
+
+    /* Filtro e tabela */
+    .filtro-container {
+      margin-bottom: 20px;
+    }
+
+    #filtro-empresa {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .tabela-container {
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #0072ff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="cabecalho">
+      <div class="cabecalho-texto">
+        <h1>Base de clientes CS João Stoky</h1>
+        <h2>Squad Middle</h2>
+      </div>
+      <div class="perfil-frame">
+        <img src="perfil.jpg" alt="Foto de Perfil João Stoky" />
+      </div>
+    </div>
+
+    <div class="filtro-container">
+      <input type="text" id="filtro-empresa" placeholder="Filtrar por nome da empresa..." />
+      <div id="sugestoes" class="sugestoes"></div>
+    </div>
+
+    <div class="tabela-container">
+      <table id="tabela-dados">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

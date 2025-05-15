@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     .card {
-      background: #ffffff;
-      border-radius: 12px;
+      background: #e6e6e6;
+      border-radius: 5px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.393);
       margin-bottom: 20px;
       text-align: center;
       word-wrap: break-word;
@@ -37,11 +37,19 @@
     .bloco {
       margin-bottom: 40px;
     }
+
+
+/* Ajustes para o tema escuro */
+body.dark h1,
+body.dark .card h2,
+body.dark .bloco h3 {
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+}
     .bloco h3 {
-      background: #ffffff;
+      background: #e6e6e6;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.393);
       margin: 0 auto 20px;
       text-align: center;
       font-size: 24px;
@@ -149,7 +157,7 @@ body.dark .dashboard > div {
       color: white;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0.1,0.1);
       transition: background-color 0.3s ease;
     }
     #btnTema:hover {

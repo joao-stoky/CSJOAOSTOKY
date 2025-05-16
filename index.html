@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>Satisfação dos Clientes</title>
-  <link rel="stylesheet" href="styles.css" />
 
   <style>
-    .body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
- 
-}
-
-    .dashboard {
-      max-width: 1200px;
-      margin: 0 auto;
+    * {
+      box-sizing: border-box;
     }
 
-    /* Linha superior com título e imagem */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: auto;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .dashboard {
+      width: calc(100vw - 40px);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho */
     .cabecalho {
       display: flex;
       justify-content: space-between;
@@ -51,15 +56,13 @@
     }
 
     .perfil-frame img {
-  width: 105%;
-  display: block;
-  object-fit: cover;
-  object-position: top;
+      width: 105%;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+    }
 
-}
-
-
-    /* Filtro e tabela */
+    /* Filtro */
     .filtro-container {
       margin-bottom: 20px;
     }
@@ -72,28 +75,89 @@
       border-radius: 6px;
     }
 
+    /* Tabela */
     .tabela-container {
-      overflow-x: auto;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     table {
-      border-collapse: collapse;
       width: 100%;
+      border-collapse: collapse;
       background: white;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      table-layout: fixed;
     }
 
     th, td {
       padding: 10px 15px;
       border-bottom: 1px solid #ddd;
       text-align: left;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      overflow-wrap: break-word;
+      white-space: normal;
+      font-size: 14px;
     }
 
     thead {
       background-color: #0072ff;
       color: white;
     }
+
+        /* Tabela */
+        .tabela-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      table-layout: fixed;
+    }
+
+    th, td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      overflow-wrap: break-word;
+      white-space: normal;
+      font-size: 14px;
+    }
+
+    thead {
+      background-color: #0072ff;
+      color: white;
+    }
+
+    /* Largura maior para email e telefone */
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 120px;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 120px;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 120px;
+    }
+
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 250px;
+    }
+
   </style>
 </head>
 <body>

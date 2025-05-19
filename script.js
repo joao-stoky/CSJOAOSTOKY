@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tbody = tabela.querySelector("tbody");
 
     // Colunas da planilha principal para mostrar na tabela
-    const colunasParaMostrar = [0, 1, 2, 3, 14, 15,16];
+    const colunasParaMostrar = [0, 1, 2, 3, 14, 15,16, 27];
     // Colunas específicas do HealthScore para mostrar
     const colunasHealthScore = [7]; // ajustar conforme necessário
     // Colunas específicas do GMV para mostrar (índice 8)
@@ -196,4 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
             sugestoesDiv.innerHTML = "";
         }
     });
+
+    
 });

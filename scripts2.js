@@ -16,26 +16,28 @@ document.addEventListener('DOMContentLoaded', function () {
     "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=1336444748",
     "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=1842256029",
     "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=1835294483",
-    "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=453852044"
+    "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=453852044",
+    "https://docs.google.com/spreadsheets/d/1pYSHTPWFmJRxBCFkqWGeCSrGFFxBvk2KHPv2ZqhDhZI/export?format=csv&gid=19044089"
   ];
 
   // Função para parsear CSV
   function parseCSV(csv) {
-    return csv.trim().split("\n").map(line => line.split(",").map(c => c.replace(/"/g, "").trim()));
+    return csv.trim().split("\n").map(line => line.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(c => c.replace(/"/g, "").trim()));
   }
 
   // Carrega todos os CSVs
   Promise.all(csvUrls.map(url => fetch(url).then(r => r.text())))
-    .then(([csv1, csv2, csv3, csv4]) => {
-      const [linhas1, linhas2, linhas3, linhas4] = [csv1, csv2, csv3, csv4].map(parseCSV);
-      const [cabecalhos1, cabecalhos2, cabecalhos3, cabecalhos4] = [linhas1, linhas2, linhas3, linhas4].map(linhas => linhas[0]);
-      const registros = [linhas1, linhas2, linhas3, linhas4].map(linhas => linhas.slice(1));
+    .then(([csv1, csv2, csv3, csv4, csv5]) => {
+      const [linhas1, linhas2, linhas3, linhas4, linhas5] = [csv1, csv2, csv3, csv4, csv5].map(parseCSV);
+      const [cabecalhos1, cabecalhos2, cabecalhos3, cabecalhos4, cabecalhos5] = [linhas1, linhas2, linhas3, linhas4, linhas5].map(linhas => linhas[0]);
+      const registros = [linhas1, linhas2, linhas3, linhas4, linhas5].map(linhas => linhas.slice(1));
 
       const dadosEmpresa = [
         registros[0].find(row => row[1] === nomeEmpresa),
         registros[1].find(row => row[1] === nomeEmpresa),
         registros[2].find(row => row[1] === nomeEmpresa),
-        registros[3].find(row => row[1] === nomeEmpresa)
+        registros[3].find(row => row[1] === nomeEmpresa),
+        registros[4].find(row => row[1] === nomeEmpresa)
       ];
 
       if (!dadosEmpresa.some(dados => dados)) {
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
           { titulo: "", indices: [31, 32] },
           { titulo: "CONTRATO", indices: [11, 12, 13, 18] },
           { titulo: "PRODUTOS ONFLY", indices: [20, 21, 22, 23] },
-          { titulo: "OPORTUNIDADES", indices: [35, 26, 27, 28, 29, 30] }
         ],
         blocos2: [
           { titulo: "Bugs Mapeados", indices: [2, 3, 4, 5, 6] }
@@ -62,35 +63,25 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         blocos4: [
           { titulo: "GMV", indices: [3, 4, 5, 6, 7, 8] }
+        ],
+        blocos5: [
+          { titulo: "OPORTUNIDADES", indices: [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
         ]
       };
 
-      // Ordem de renderização dos blocos
-      const blocosOrdenados = [
-        ...blocos.blocos1.slice(0, 2), // DADOS e TRAVEL MANAGER
-        ...blocos.blocos2,             // Bugs Mapeados
-        blocos.blocos1[2],             // INFORMAÇÕES RELEVANTES
-        ...blocos.blocos3,             // HEALTH SCORE
-        ...blocos.blocos4,             // GMV
-        ...blocos.blocos1.slice(3)     // Restante dos blocos1
-      ];
-
       // Renderiza os blocos
-      // Criação dos blocos com seus respectivos dados e cabeçalhos
       criarBlocos(blocos.blocos1, cabecalhos1, dadosEmpresa[0]);
       criarBlocos(blocos.blocos2, cabecalhos2, dadosEmpresa[1]);
       criarBlocos(blocos.blocos3, cabecalhos3, dadosEmpresa[2]);
       criarBlocos(blocos.blocos4, cabecalhos4, dadosEmpresa[3]);
+      criarBlocos(blocos.blocos5, cabecalhos5, dadosEmpresa[4]);
 
-
-      // Adiciona botão de voltar
       const voltar = document.createElement("a");
       voltar.href = "index.html";
       voltar.className = "voltar";
       voltar.textContent = "← Voltar para a lista";
       document.getElementById("dashboard").appendChild(voltar);
 
-      // Ajusta fonte dos títulos
       ajustarFonte();
     })
     .catch(error => {
@@ -192,6 +183,16 @@ document.addEventListener('DOMContentLoaded', function () {
       else if (valorUpper === "NÃO" || valorUpper === "NAO") card.classList.add(indice === 24 ? "nao" : "nao2");
     }
 
+    // OPORTUNIDADES – valores SIM/NÃO com classes
+if (tituloBloco === "OPORTUNIDADES") {
+  if (valorUpper === "SIM") {
+    card.classList.add("card-sim");
+  } else if (valorUpper === "NÃO" || valorUpper === "NAO") {
+    card.classList.add("card-nao");
+  }
+}
+
+
     // PRODUTOS ONFLY
    // Dentro da função criarCard:
 if (tituloBloco === "PRODUTOS ONFLY" && [20, 21, 22, 23].includes(indice)) {
@@ -203,8 +204,12 @@ if (tituloBloco === "PRODUTOS ONFLY" && [20, 21, 22, 23].includes(indice)) {
     card.style.color = "#FFFFFF";
     card.classList.add("card-vermelho"); // Adiciona esta linha
   }
+
+  
 }
   }
+
+  
 
   // Função para ajustar fonte
   function ajustarFonte() {

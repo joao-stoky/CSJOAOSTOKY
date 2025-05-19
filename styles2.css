@@ -71,6 +71,17 @@ body {
     padding: 0 20px;
 }
 
+.card-sim {
+  background-color: #28a745 !important; /* Verde */
+  color: #ffffff !important;
+}
+
+.card-nao {
+  background-color: #ffc107 !important; /* Amarelo */
+  color: #000000 !important;
+}
+
+
 .botao-menu {
     color: #fff;
     text-decoration: none;

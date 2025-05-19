@@ -1,0 +1,382 @@
+/* Estilo Moderno - Mantendo todas as classes condicionais */
+:root {
+  --cor-primaria: #1a73e8;
+  --cor-secundaria: #34a853;
+  --cor-texto: #202124;
+  --cor-fundo: #f8f9fa;
+  --cor-card: #ffffff;
+  --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset e Tipografia Moderna */
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container Principal */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+/* Cabeçalhos */
+#titulo {
+  color: var(--cor-primaria);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bloco h3 {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, #5e72e4 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  margin: 0 0 25px 0;
+  box-shadow: var(--sombra);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: var(--transicao);
+}
+
+.menu-superior {
+    width: 100%;
+    background-color: #0072ff;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-container {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.botao-menu {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-menu:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Grid de Cards Moderno */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* Cards Modernos */
+.card {
+  background: var(--cor-card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--cor-primaria);
+}
+
+.card h2 {
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Efeito de hover mais suave */
+.card:hover::before {
+  width: 6px;
+  background: var(--cor-secundaria);
+}
+
+/* Botão Voltar Moderno */
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: var(--transicao);
+  margin-bottom: 20px;
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.voltar:hover {
+  background-color: rgba(26, 115, 232, 0.2);
+  text-decoration: none;
+}
+
+/* Botão Tema Moderno */
+#btnTema {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background-color: var(--cor-primaria);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#btnTema:hover {
+  background-color: #0d5bba;
+  transform: translateY(-2px);
+}
+
+/* ------------------------- */
+/* MANTENDO TODAS AS CLASSES CONDICIONAIS ORIGINAIS */
+/* (cores especiais para fórmulas não serão alteradas) */
+
+.subiu, .descentralizado, .nao, .sim2 {
+  background-color: #2ecc71 !important;
+  color: #ffffff !important;
+}
+
+.caiu {
+  background-color: #e74c3c !important;
+  color: #ffffff !important;
+}
+
+.centralizado, .sim, .nao2 {
+  background-color: #f1c40f !important;
+  color: #ffffff !important;
+}
+
+.f0, .fSim {
+  background-color: #155724 !important;
+  color: #ffffff !important;
+}
+
+.f0-20 {
+  background-color: #d4edda !important;
+  color: #155724 !important;
+}
+
+.f21-40 {
+  background-color: #fff9c4 !important;
+  color: #827717 !important;
+}
+
+.f41-60 {
+  background-color: #ffe082 !important;
+  color: #f57f17 !important;
+}
+
+.f61-70 {
+  background-color: #ffcc80 !important;
+  color: #e65100 !important;
+}
+
+.f71-80 {
+  background-color: #e1bee7 !important;
+  color: #6a1b9a !important;
+}
+
+.f81-90 {
+  background-color: #ffcdd2 !important;
+  color: #b71c1c !important;
+}
+
+.f91-100 {
+  background-color: #f44336 !important;
+  color: #ffffff !important;
+}
+
+.fQuase {
+  background-color: #f1c40f !important;
+  color: #555 !important;
+}
+
+/* ------------------------- */
+/* Tema Escuro Moderno */
+body.dark {
+  --cor-primaria: #8ab4f8;
+  --cor-secundaria: #81c995;
+  --cor-texto: #e8eaed;
+  --cor-fundo: #202124;
+  --cor-card: #2d2d2d;
+  --sombra: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .dashboard {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+}
+
+body.dark .bloco h3 {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2d3748 100%);
+}
+
+body.dark .card {
+  border-color: #444;
+}
+
+/* Efeitos de transição suave ao alternar temas */
+body, .card, .bloco h3 {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Melhorias na responsividade */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard {
+    padding: 15px;
+  }
+  
+  #titulo {
+    font-size: 1.5rem;
+  }
+}
+
+/* ------------------------------------------- */
+/* SUPER DARK MODE - TEMA ULTRA ESCURO PREMIUM */
+/* ------------------------------------------- */
+
+body.super-dark {
+  --cor-primaria: #8ab4f8;       /* Azul mais suave */
+  --cor-secundaria: #81c995;     /* Verde claro */
+  --cor-texto: #e8eaed;          /* Texto quase branco */
+  --cor-fundo: #0a0a0a;          /* Fundo preto profundo */
+  --cor-card: #1e1e1e;           /* Cards pretos */
+  --sombra: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
+}
+
+body.super-dark .dashboard {
+  background-color: #121212;
+  border: 1px solid #333;        /* Borda sutil */
+}
+
+body.super-dark .bloco h3 {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+  color: var(--cor-primaria) !important;
+  border: 1px solid #333;
+}
+
+body.super-dark .card {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.super-dark .card h2 {
+  color: var(--cor-primaria) !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+body.super-dark .card p {
+  color: #e0e0e0 !important;
+}
+
+/* Ajuste para não afetar os cards condicionais (SIM/NÃO/SUBIR/CAIR) */
+body.super-dark .subiu,
+body.super-dark .caiu,
+body.super-dark .f0,
+body.super-dark .fSim,
+body.super-dark .descentralizado,
+body.super-dark .centralizado,
+body.super-dark .sim,
+body.super-dark .nao,
+body.super-dark .sim2,
+body.super-dark .nao2 {
+  /* Mantém as cores originais! */
+  border: none !important;
+}
+
+/* Títulos brancos em cards vermelhos */
+.card.caiu h2,
+.card.f91-100 h2 {
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Ajuste para o tema escuro */
+body.dark .card.caiu h2,
+body.dark .card.f91-100 h2,
+body.super-dark .card.caiu h2,
+body.super-dark .card.f91-100 h2 {
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
+}
+/* Títulos brancos em cards vermelhos - PRODUTOS ONFLY */
+.card[style*="background-color: #dc3545"] h2,
+.card.card-vermelho h2 {
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Para temas escuros */
+body.dark .card[style*="background-color: #dc3545"] h2,
+body.dark .card.card-vermelho h2,
+body.super-dark .card[style*="background-color: #dc3545"] h2,
+body.super-dark .card.card-vermelho h2 {
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
+}

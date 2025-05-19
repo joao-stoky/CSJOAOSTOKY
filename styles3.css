@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.dashboard {
+  max-width: 95%;
+  margin: 20px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #0072ff;
+  margin-bottom: 30px;
+}
+
+.tabela-tarifas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabela-tarifas th,
+.tabela-tarifas td {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
+  vertical-align: top;
+}
+
+.tabela-tarifas thead {
+  background-color: #0072ff;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e0f0ff;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #0072ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.voltar:hover {
+  text-decoration: underline;
+}
+
+#btnTema {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 8px 12px;
+  background-color: #0072ff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+#btnTema:hover {
+  background-color: #005bb5;
+}
+
+/* Tema escuro */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .dashboard {
+  background-color: #1e1e1e;
+}
+
+body.dark .tabela-tarifas th {
+  background-color: #333;
+}
+
+body.dark .tabela-tarifas td {
+  color: #e0e0e0;
+}
+
+body.dark .voltar {
+  color: #66aaff;
+}
+.menu-superior {
+    width: 100%;
+    background-color: #0072ff;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-container {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.botao-menu {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-menu:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}

@@ -125,6 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
     linhas.forEach(colunas => {
         const tr = document.createElement("tr");
 
+        // Tornar a linha clicável
+        tr.style.cursor = "pointer";
+        const nomeEmpresa = colunas[1];
+        tr.addEventListener("click", () => {
+            const url = `pagina2.html?empresa=${encodeURIComponent(nomeEmpresa)}`;
+            window.location.href = url;
+        });
+
         // Colunas planilha principal
         colunas.forEach((coluna, index) => {
             if (colunasParaMostrar.includes(index)) {
@@ -134,30 +142,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Colunas HealthScore
-        const nomeEmpresa = colunas[1];
+        // HealthScore + GMV (se houver)
         const dadosHS = healthScoreMap[nomeEmpresa];
         if (dadosHS) {
             colunasHealthScore.forEach(index => {
                 const td = document.createElement("td");
                 const valor = (dadosHS[index] || "").trim().toUpperCase();
                 td.textContent = valor;
-
                 if (valor === "SUBIU") {
-                    td.style.backgroundColor = "#c8e6c9"; // verde claro
-                    td.style.color = "#2e7d32"; // verde escuro
+                    td.style.backgroundColor = "#c8e6c9";
+                    td.style.color = "#2e7d32";
                     td.style.fontWeight = "bold";
                 } else if (valor === "CAIU") {
-                    td.style.backgroundColor = "#ffcdd2"; // vermelho claro
-                    td.style.color = "#c62828"; // vermelho escuro
+                    td.style.backgroundColor = "#ffcdd2";
+                    td.style.color = "#c62828";
                     td.style.fontWeight = "bold";
                 }
-
                 tr.appendChild(td);
             });
         }
 
-        // Colunas GMV
         const dadosGMV = gmvMap[nomeEmpresa];
         if (dadosGMV) {
             colunasGMV.forEach(index => {
@@ -165,15 +169,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 const valor = dadosGMV[index] || "";
                 td.textContent = valor;
 
-                // Estilizar coluna 8 GMV: SIM = verde escuro, QUASE = amarelo
                 if (index === 8) {
                     const valUpper = valor.toString().trim().toUpperCase();
                     if (valUpper === "SIM") {
-                        td.style.backgroundColor = "#004d00"; // verde escuro
+                        td.style.backgroundColor = "#004d00";
                         td.style.color = "white";
                         td.style.fontWeight = "bold";
                     } else if (valUpper === "QUASE") {
-                        td.style.backgroundColor = "#fff176"; // amarelo claro
+                        td.style.backgroundColor = "#fff176";
                         td.style.color = "#555";
                         td.style.fontWeight = "bold";
                     }

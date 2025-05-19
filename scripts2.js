@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
           { titulo: "GMV", indices: [3, 4, 5, 6, 7, 8] }
         ],
         blocos5: [
-          { titulo: "OPORTUNIDADES", indices: [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
+          { titulo: "OPORTUNIDADES", indices: [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18] }
         ]
       };
 

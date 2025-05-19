@@ -1,283 +1,151 @@
-.body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
- 
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  padding-top: 20px;}
+
+.dashboard {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+h1, h2 {
+    text-align: center;
+    color: #0072ff;
+    margin-bottom: 30px;
+}
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    margin: 0 auto;
+    border: 2px solid #c9caca;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 15px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    min-width: 1200px;
+    
+}
+
+th {
+    word-break: break-word;
+    white-space: normal;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha tudo à esquerda */
+  gap: 16px; /* Espaço entre título e foto */
+  margin-bottom: 20px;
+}
+
+
+th, td {
+    padding: 15px 20px;
+    border-bottom: 2px solid #c9caca;
+    border-right: #c9caca 2px solid;
+    text-align: left;
+}
+
+th {
+    background-color: #0072ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: nowrap;  /* NÃO quebra o texto */
+    border-right: 1px solid #fff;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #1569a1;
+    transform: scale(1.005);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+tr:hover td {
+    color: #fff;
+}
+tr:hover th {
+    color: #fff;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Melhorias para dispositivos menores */
+@media (max-width: 768px) {
     .dashboard {
-      max-width: 1200px;
-      margin: 0 auto;
+        padding: 20px;
     }
-
-    /* Linha superior com título e imagem */
-    .cabecalho {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .cabecalho-texto {
-      flex: 1;
-    }
-
-    .cabecalho h1 {
-      margin: 0;
-      color: #0072ff;
-    }
-
-    .cabecalho h2 {
-      margin: 5px 0 0;
-      color: #333;
-    }
-
-    .perfil-frame {
-      width: 120px;
-      height: 120px;
-      border: 4px solid #0072ff;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      flex-shrink: 0;
-    }
-
-    .perfil-frame img {
-  width: 105%;
-  display: block;
-  object-fit: cover;
-  object-position: top;
-
-}
-
-
-    /* Filtro e tabela */
-    .filtro-container {
-      margin-bottom: 20px;
-    }
-
-    #filtro-empresa {
-      width: 100%;
-      padding: 8px 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    .tabela-container {
-      overflow-x: auto;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
+    
     th, td {
-      padding: 10px 15px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
+        padding: 12px 15px;
     }
-
-    thead {
-      background-color: #0072ff;
-      color: white;
-    }
-
-.card {
-      background: #e6e6e6;
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.393);
-      margin-bottom: 20px;
-      text-align: center;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      white-space: pre-wrap;
-      color: #000000;
-    }
-    .card h2 {
-      margin: 0 0 10px;
-      color: #0072ff;
-      text-align: center;
-    }
-    .card p {
-      font-size: 15px;
-      line-height: 1.5;
-      margin: 0;
-      white-space: pre-wrap;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .bloco {
-      margin-bottom: 40px;
-    }
-
-
-/* Ajustes para o tema escuro */
-body.dark h1,
-body.dark .card h2,
-body.dark .bloco h3 {
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
-}
-    .bloco h3 {
-      background: #e6e6e6;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.393);
-      margin: 0 auto 20px;
-      text-align: center;
-      font-size: 24px;
-      color: #0072ff;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .voltar {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: #0072ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .voltar:hover {
-      text-decoration: underline;
-    }
-    .subiu {
-      background-color: #2ecc71;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    .caiu {
-      background-color: #e74c3c;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    .descentralizado {
-      background-color: #2ecc71;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    .centralizado {
-      background-color: #f1c40f;
-      color: #000000;
-      font-weight: bold;
-    }
-    .sim {
-      background-color: #f1c40f;
-      color: #000000;
-      font-weight: bold;
-    }
-    .nao {
-      background-color: #2ecc71;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    .sim2 {
-      background-color: #2ecc71;
-      color: #000000;
-      font-weight: bold;
-    }
-    .nao2 {
-      background-color: #f1c40f;
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    /* Tema escuro */
-   body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
 }
 
-body.dark .card {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  /* Sombra mais marcada para destacar no fundo escuro */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+.filtro-container {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-body.dark .bloco h3 {
-  background-color: #1e1e1e;
-  color: #66aaff;
-  /* Sombra mais marcada */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+#filtro-empresa {
+    padding: 10px 15px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid #0072ff;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
 }
 
-body.dark .dashboard {
-  /* Fundo do container principal também escurecido */
-  background-color: #121212;
+#filtro-empresa:focus {
+    border-color: #005bb5;
+    box-shadow: 0 0 5px rgba(0, 114, 255, 0.5);
 }
 
-/* Link voltar */
-body.dark .voltar {
-  color: #66aaff;
+.sugestoes {
+    position: relative;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
 }
 
-/* Se quiser, pode aplicar sombra também ao container geral */
-body.dark .dashboard > div {
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+.sugestao-item {
+    padding: 10px;
+    cursor: pointer;
 }
 
-    /* Botão tema */
-    #btnTema {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 1000;
-      padding: 8px 12px;
-      background-color: #0072ff;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px 1px rgba(0,0,0.1,0.1);
-      transition: background-color 0.3s ease;
-    }
-    #btnTema:hover {
-      background-color: #005bb5;
-    }
-
-    .sugestoes {
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-height: 200px;
-      overflow-y: auto;
-      background-color: #fff;
-      position: absolute;
-      width: calc(100% - 24px);
-      z-index: 10;
-      margin-top: 5px;
-    }
-    
-    .sugestao-item {
-      padding: 10px 15px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .sugestao-item:hover {
-      background-color: #f0f8ff;
-      color: #0072ff;
-      font-weight: bold;
-    }
-    .filtro-container {
-      position: relative;
-    }
-    .filtro-container input {
-      width: 100%;
-      padding: 8px 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }    
+.sugestao-item:hover {
+    background-color: #e3eeff;
+}

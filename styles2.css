@@ -73,12 +73,12 @@ body {
 }
 
 .card-sim {
-  background-color: #28a745 !important;
+  background-color: #2ecc71 !important;
   color: #ffffff !important;
 }
 
 .card-nao {
-  background-color: #ffc107 !important;
+  background-color: #f1c40f !important;
   color: #000000 !important;
 }
 
@@ -157,29 +157,43 @@ body {
 }
 
 /* Classes Condicionais */
-.subiu, .descentralizado, .nao, .sim2 {
+.subiu, .nao, .sim2 {
   background-color: #2ecc71 !important;
   color: #ffffff !important;
 }
 
 .caiu {
-  background-color: #e74c3c !important;
+  background-color: #dc3545 !important;
   color: #ffffff !important;
 }
 
-.centralizado, .sim, .nao2 {
+ .sim, .nao2 {
   background-color: #f1c40f !important;
   color: #ffffff !important;
 }
 
+.card-sim {
+  background-color: #fff3cd; /* amarelo claro */
+  color: #856404;            /* texto amarelo escuro */
+  border: 1px solid #ffeeba;
+}
+
+.card-nao {
+  background-color: #d4edda; /* verde claro */
+  color: #2ecc71;            /* texto verde escuro */
+  border: 1px solid #c3e6cb;
+}
+
+
+
 .f0, .fSim {
-  background-color: #155724 !important;
+  background-color: #2ecc71 !important;
   color: #ffffff !important;
 }
 
 .f0-20 {
   background-color: #d4edda !important;
-  color: #155724 !important;
+  color: #2ecc71 !important;
 }
 
 .f21-40 {

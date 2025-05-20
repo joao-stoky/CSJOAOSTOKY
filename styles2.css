@@ -1,15 +1,16 @@
-/* Estilo Moderno - Mantendo todas as classes condicionais */
 :root {
-  --cor-primaria: #1a73e8;
-  --cor-secundaria: #34a853;
-  --cor-texto: #202124;
-  --cor-fundo: #f8f9fa;
+  --cor-primaria: #0072ff;
+  --cor-primaria-escura: #0056b3;
+  --cor-secundaria: #0056b3;
+  --cor-texto: #333333;
+  --cor-fundo: #f5f5f5;
   --cor-card: #ffffff;
   --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transicao: all 0.3s ease;
 }
+/* (restante do CSS omitido para brevidade, mas incluirá tudo conforme a resposta acima) */
 
-/* Reset e Tipografia Moderna */
+/* Reset e Tipografia */
 body {
   font-family: 'Segoe UI', 'Roboto', sans-serif;
   background-color: var(--cor-fundo);
@@ -24,7 +25,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
+  background-color: var(--cor-card);
   border-radius: 12px;
   box-shadow: var(--sombra);
 }
@@ -39,7 +40,7 @@ body {
 }
 
 .bloco h3 {
-  background: linear-gradient(135deg, var(--cor-primaria) 0%, #5e72e4 100%);
+  background-color: var(--cor-primaria);
   color: white;
   padding: 15px 20px;
   border-radius: 10px;
@@ -53,52 +54,50 @@ body {
 }
 
 .menu-superior {
-    width: 100%;
-    background-color: #0072ff;
-    padding: 10px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  width: 100%;
+  background-color: var(--cor-primaria);
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .menu-container {
-    max-width: 95%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    padding: 0 20px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 0 20px;
 }
 
 .card-sim {
-  background-color: #28a745 !important; /* Verde */
+  background-color: #28a745 !important;
   color: #ffffff !important;
 }
 
 .card-nao {
-  background-color: #ffc107 !important; /* Amarelo */
+  background-color: #ffc107 !important;
   color: #000000 !important;
 }
 
-
 .botao-menu {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    background-color: transparent;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .botao-menu:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-
-/* Grid de Cards Moderno */
+/* Grid de Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -106,31 +105,14 @@ body {
   margin-bottom: 40px;
 }
 
-/* Cards Modernos */
+/* Cards */
 .card {
-  background: var(--cor-card);
-  border-radius: 12px;
+  background-color: rgba(26, 115, 232, 0.05); /* Fundo azul claro translúcido */
+  border: 1px solid rgba(26, 115, 232, 0.15);  /* Borda sutil */
+  border-radius: 10px;
   padding: 20px;
-  box-shadow: var(--sombra);
-  transition: var(--transicao);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--cor-primaria);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
 .card h2 {
@@ -139,23 +121,23 @@ body {
   margin: 0 0 12px 0;
   font-weight: 600;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(26, 115, 232, 0.1);
 }
 
 .card p {
-  color: var(--cor-texto);
+  color: #333;
   font-size: 0.95rem;
   margin: 0;
   line-height: 1.5;
 }
 
-/* Efeito de hover mais suave */
-.card:hover::before {
-  width: 6px;
-  background: var(--cor-secundaria);
+.card:hover {
+  background-color: rgba(26, 115, 232, 0.1); /* Efeito leve no hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
-/* Botão Voltar Moderno */
+
+/* Botão Voltar */
 .voltar {
   display: inline-flex;
   align-items: center;
@@ -166,19 +148,15 @@ body {
   border-radius: 6px;
   transition: var(--transicao);
   margin-bottom: 20px;
-  background-color: rgba(26, 115, 232, 0.1);
+  background-color: rgba(0, 114, 255, 0.1);
 }
 
 .voltar:hover {
-  background-color: rgba(26, 115, 232, 0.2);
+  background-color: rgba(0, 114, 255, 0.2);
   text-decoration: none;
 }
 
-
-/* ------------------------- */
-/* MANTENDO TODAS AS CLASSES CONDICIONAIS ORIGINAIS */
-/* (cores especiais para fórmulas não serão alteradas) */
-
+/* Classes Condicionais */
 .subiu, .descentralizado, .nao, .sim2 {
   background-color: #2ecc71 !important;
   color: #ffffff !important;
@@ -239,26 +217,20 @@ body {
   color: #555 !important;
 }
 
-/* ------------------------- */
-/* Tema Escuro Moderno */
-
-/* Melhorias na responsividade */
+/* Responsividade */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
   }
-  
+
   .dashboard {
     padding: 15px;
   }
-  
+
   #titulo {
     font-size: 1.5rem;
   }
 }
-
-/* ------------------------------------------- */
-
 
 /* Títulos brancos em cards vermelhos */
 .card.caiu h2,
@@ -267,12 +239,9 @@ body {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
 }
 
-
-
 /* Títulos brancos em cards vermelhos - PRODUTOS ONFLY */
 .card[style*="background-color: #dc3545"] h2,
 .card.card-vermelho h2 {
   color: white !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
 }
-

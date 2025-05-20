@@ -336,6 +336,8 @@ if (tituloBloco === "FEEDBACKS" && (indice === 6 || indice === 7)) {
   window.addEventListener("resize", ajustarFonte);
 });
 
+
+
 console.log("Nome da empresa buscada:", nomeEmpresa);
 console.log("Linha encontrada:", dadosEmpresa);
 console.log("dadosEmpresa:", dadosEmpresa);

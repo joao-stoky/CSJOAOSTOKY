@@ -9,14 +9,16 @@ fetch(url)
     for (let i = 1; i < linhas.length; i++) {
       const colunas = linhas[i].split(",");
 
-      if (colunas.length < 6) continue;
+      if (colunas.length < 8) continue;
 
       const capital = colunas[0];
       const nomeAeroporto = colunas[1];
       const codigoICAO = colunas[2];
       const codigoIATA = colunas[3];
       const link = colunas[4];
-      const descricao = colunas.slice(5).join(",");
+      const descricao = colunas[5];
+      const urlLinkExtra = colunas[6];  // coluna G (URL)
+      const textoLinkExtra = colunas[7];  // coluna H (título do link)
 
       if (!dadosPorCapital[capital]) {
         dadosPorCapital[capital] = [];
@@ -27,7 +29,9 @@ fetch(url)
         codigoICAO,
         codigoIATA,
         link,
-        descricao
+        descricao,
+        urlLinkExtra,
+        textoLinkExtra
       });
     }
 
@@ -49,6 +53,7 @@ fetch(url)
           <p><strong>${item.nomeAeroporto}</strong></p>
           <p>Códigos: ICAO <strong>${item.codigoICAO}</strong> / IATA <strong>${item.codigoIATA}</strong></p>
           <p><a href="${item.link}" target="_blank">${item.descricao}</a></p>
+          <p><a href="${item.urlLinkExtra}" target="_blank">${item.textoLinkExtra}</a></p>
           <hr />
         `;
         secao.appendChild(div);

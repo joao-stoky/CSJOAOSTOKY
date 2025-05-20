@@ -174,30 +174,6 @@ body {
   text-decoration: none;
 }
 
-/* Botão Tema Moderno */
-#btnTema {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  padding: 10px 16px;
-  background-color: var(--cor-primaria);
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: var(--sombra);
-  transition: var(--transicao);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-#btnTema:hover {
-  background-color: #0d5bba;
-  transform: translateY(-2px);
-}
 
 /* ------------------------- */
 /* MANTENDO TODAS AS CLASSES CONDICIONAIS ORIGINAIS */
@@ -258,39 +234,13 @@ body {
   color: #ffffff !important;
 }
 
-.fQuase {
+.fNao {
   background-color: #f1c40f !important;
   color: #555 !important;
 }
 
 /* ------------------------- */
 /* Tema Escuro Moderno */
-body.dark {
-  --cor-primaria: #8ab4f8;
-  --cor-secundaria: #81c995;
-  --cor-texto: #e8eaed;
-  --cor-fundo: #202124;
-  --cor-card: #2d2d2d;
-  --sombra: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-body.dark .dashboard {
-  background-color: #2d2d2d;
-  border: 1px solid #444;
-}
-
-body.dark .bloco h3 {
-  background: linear-gradient(135deg, #3a3a3a 0%, #2d3748 100%);
-}
-
-body.dark .card {
-  border-color: #444;
-}
-
-/* Efeitos de transição suave ao alternar temas */
-body, .card, .bloco h3 {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Melhorias na responsividade */
 @media (max-width: 768px) {
@@ -308,58 +258,7 @@ body, .card, .bloco h3 {
 }
 
 /* ------------------------------------------- */
-/* SUPER DARK MODE - TEMA ULTRA ESCURO PREMIUM */
-/* ------------------------------------------- */
 
-body.super-dark {
-  --cor-primaria: #8ab4f8;       /* Azul mais suave */
-  --cor-secundaria: #81c995;     /* Verde claro */
-  --cor-texto: #e8eaed;          /* Texto quase branco */
-  --cor-fundo: #0a0a0a;          /* Fundo preto profundo */
-  --cor-card: #1e1e1e;           /* Cards pretos */
-  --sombra: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
-}
-
-body.super-dark .dashboard {
-  background-color: #121212;
-  border: 1px solid #333;        /* Borda sutil */
-}
-
-body.super-dark .bloco h3 {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
-  color: var(--cor-primaria) !important;
-  border: 1px solid #333;
-}
-
-body.super-dark .card {
-  background-color: #1e1e1e !important;
-  border: 1px solid #333 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
-}
-
-body.super-dark .card h2 {
-  color: var(--cor-primaria) !important;
-  border-bottom: 1px solid #333 !important;
-}
-
-body.super-dark .card p {
-  color: #e0e0e0 !important;
-}
-
-/* Ajuste para não afetar os cards condicionais (SIM/NÃO/SUBIR/CAIR) */
-body.super-dark .subiu,
-body.super-dark .caiu,
-body.super-dark .f0,
-body.super-dark .fSim,
-body.super-dark .descentralizado,
-body.super-dark .centralizado,
-body.super-dark .sim,
-body.super-dark .nao,
-body.super-dark .sim2,
-body.super-dark .nao2 {
-  /* Mantém as cores originais! */
-  border: none !important;
-}
 
 /* Títulos brancos em cards vermelhos */
 .card.caiu h2,
@@ -368,14 +267,8 @@ body.super-dark .nao2 {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Ajuste para o tema escuro */
-body.dark .card.caiu h2,
-body.dark .card.f91-100 h2,
-body.super-dark .card.caiu h2,
-body.super-dark .card.f91-100 h2 {
-  color: white !important;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
-}
+
+
 /* Títulos brancos em cards vermelhos - PRODUTOS ONFLY */
 .card[style*="background-color: #dc3545"] h2,
 .card.card-vermelho h2 {
@@ -383,11 +276,3 @@ body.super-dark .card.f91-100 h2 {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Para temas escuros */
-body.dark .card[style*="background-color: #dc3545"] h2,
-body.dark .card.card-vermelho h2,
-body.super-dark .card[style*="background-color: #dc3545"] h2,
-body.super-dark .card.card-vermelho h2 {
-  color: white !important;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
-}

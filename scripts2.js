@@ -113,15 +113,17 @@ document.addEventListener("DOMContentLoaded", function () {
       // Definição dos blocos
       const blocos = {
         blocos1: [
-          { titulo: "DADOS", indices: [0, 1, 2, 3, 6, 7, 8, 9, 10, 27, 28] },
+          { titulo: "DADOS", indices: [0, 1, 2, 3, 6, 7, 8, 9, 10, 27, 28, 26] },
           { titulo: "TRAVEL MANAGER", indices: [14, 15, 16, 17] },
           { titulo: "INFORMAÇÕES RELEVANTES", indices: [19, 24] },
           { titulo: "", indices: [31, 32] },
           { titulo: "CONTRATO", indices: [11, 12, 13, 18] },
           { titulo: "PRODUTOS ONFLY", indices: [20, 21, 22, 23, 29] },
         ],
-        blocos2: [{ titulo: "Bugs Mapeados", indices: [2, 3, 4, 5, 6] }],
-        blocos3: [{ titulo: "HEALTH SCORE", indices: [8, 3, 4, 5, 7] }],
+        blocos2: [{ titulo: "BUGS COM IMPACTO", indices: [2, 3, 4, 5, 6] }],
+        blocos3: [{ titulo: "HEALTH SCORE", indices: [ 3, 4, 5, 7] }, 
+        { titulo: "ANÁLISE DE RISCO", indices: [8, 9] },],
+        
         blocos4: [{ titulo: "GMV", indices: [3, 4, 5, 8, 6, 7, 8] }],
         blocos5: [
           {
@@ -242,6 +244,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (valorUpper === "SUBIU") card.classList.add("subiu");
       else if (valorUpper === "CAIU") card.classList.add("caiu");
     }
+
+      // ALTA / BAIXA - esquema de cores
+  if (valorUpper === "ALTA") {
+    card.classList.add("alta");
+  } else if (valorUpper === "BAIXA") {
+    card.classList.add("baixa");
+  }
+
 
     // GMV - Percentual
     if (tituloBloco === "GMV" && indice === 5) {

@@ -1,39 +1,20 @@
-.bloco-aeroporto {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+:root {
+  --cor-primaria: #0072ff;
+  --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --cor-card: #fff;
+  --cor-texto: #333;
+  --cor-fundo: #f9f9f9;
+  --border-radius: 10px;
+  --padding-card: 20px;
 }
 
-.bloco-aeroporto h2 {
-  margin-top: 0;
-  font-size: 1.2em;
-  color: #1f2937;
-}
-
-.bloco-aeroporto p {
-  margin: 8px 0;
-}
-
-.bloco-aeroporto a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.bloco-aeroporto a:hover {
-  text-decoration: underline;
-}
-
+/* Reset básico e corpo */
 body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
-    transition: background-color 0.3s, color 0.3s;
-    padding-top: 20px;
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
 
 .menu-superior {
@@ -72,13 +53,26 @@ body {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-.dashboard {
-    max-width: 95%;
-    margin: 20px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* Container geral - grid flexível com gap */
+#dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cada card tem fundo branco, sombra leve e cantos arredondados */
+.card {
+  background: var(--cor-card);
+  box-shadow: var(--sombra);
+  border-radius: var(--border-radius);
+  padding: var(--padding-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* para os cards terem altura igual na grid */
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
 }
 
 h1 {
@@ -87,115 +81,74 @@ h1 {
     margin-bottom: 30px;
 }
 
+/* Título do card */
+.card h2 {
+  background-color: var(--cor-primaria);
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 15px;
+  margin: 0 0 15px 0;
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Container da tabela dentro do card */
 .tabela-container {
-    width: 100%;
-    overflow-x: auto;
-    border-radius: 10px;
-    border: 2px solid #c9caca;
-    background-color: white;
+  overflow-x: auto;
+  flex-grow: 1; /* para a tabela ocupar todo o espaço restante */
 }
 
+/* Tabela estilizada */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 300px; /* evita colunas muito pequenas */
 }
 
+/* Cabeçalho */
 th {
-    background-color: #0072ff;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 12px;
-    text-align: center;
-    border-right: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid #0072ff;
 }
 
+/* Células */
 td {
-    padding: 15px 20px;
-    border-bottom: 2px solid #c9caca;
-    border-right: 2px solid #c9caca;
-    text-align: left;
-    white-space: normal;
-    word-break: break-word;
-    font-size: 14px;
-    vertical-align: top;
+  padding: 10px;
+  border: 1px solid #c9caca;
+  vertical-align: top;
+  word-break: break-word;
 }
 
-tr:nth-child(even) {
-    background-color: #f5f5f5;
+/* Linhas pares com cor de fundo leve */
+tbody tr:nth-child(even) {
+  background-color: #f0f6ff;
 }
 
-tr:hover {
-    background-color: #1569a1;
-    color: #fff;
-    transform: scale(1.005);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Efeito hover na linha */
+
+
+/* Links dentro da tabela */
+td a {
+  color: var(--cor-primaria);
+  text-decoration: none;
 }
 
-tr:hover td,
-tr:hover th {
-    color: #fff;
-}
 
-tr:last-child td {
-    border-bottom: none;
-}
 
-/* Modo escuro */
-body.modo-escuro {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.modo-escuro .dashboard {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
-
-body.modo-escuro .tabela-container {
-    border-color: #444;
-    background-color: #1e1e1e;
-}
-
-body.modo-escuro table {
-    color: #e0e0e0;
-}
-
-body.modo-escuro th {
-    background-color: #004b99;
-    border-color: #222;
-}
-
-body.modo-escuro td {
-    border-color: #444;
-}
-
-body.modo-escuro tr:nth-child(even) {
-    background-color: #2a2a2a;
-}
-
-body.modo-escuro tr:hover {
-    background-color: #005bb5;
-    color: #fff;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .dashboard {
-        padding: 20px;
-    }
-
-    th, td {
-        padding: 12px 15px;
-        font-size: 13px;
-    }
-
-    .menu-container {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+/* Responsividade simples */
+@media (max-width: 380px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
 }

@@ -18,39 +18,39 @@ body {
 }
 
 .menu-superior {
-    width: 100%;
-    background-color: #0072ff;
-    padding: 10px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  width: 100%;
+  background-color: #0072ff;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .menu-container {
-    max-width: 95%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    padding: 0 20px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 0 20px;
 }
 
 .botao-menu {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    background-color: transparent;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-    border: none;
-    cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .botao-menu:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Container geral - grid flexível com gap */
@@ -70,15 +70,16 @@ body {
   padding: var(--padding-card);
   display: flex;
   flex-direction: column;
-  height: 100%; /* para os cards terem altura igual na grid */
+  height: 100%;
+  /* para os cards terem altura igual na grid */
   box-sizing: border-box;
   transition: box-shadow 0.3s ease;
 }
 
 h1 {
-    text-align: center;
-    color: #0072ff;
-    margin-bottom: 30px;
+  text-align: center;
+  color: #0072ff;
+  margin-bottom: 30px;
 }
 
 /* Título do card */
@@ -93,13 +94,14 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Container da tabela dentro do card */
 .tabela-container {
   overflow-x: auto;
-  flex-grow: 1; /* para a tabela ocupar todo o espaço restante */
+  flex-grow: 1;
+  /* para a tabela ocupar todo o espaço restante */
 }
 
 /* Tabela estilizada */
@@ -107,7 +109,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  min-width: 300px; /* evita colunas muito pequenas */
+  min-width: 300px;
+  /* evita colunas muito pequenas */
 }
 
 /* Cabeçalho */

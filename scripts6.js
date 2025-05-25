@@ -67,50 +67,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Corpo
       const tbody = document.createElement("tbody");
-    dados.forEach(linha => {
-  // Verifica se todas as células relevantes para este bloco estão vazias
-  const todasVazias = bloco.indices.every(i => {
-    const celula = linha[i];
-    return !celula || celula.trim() === "";
-  });
+      dados.forEach(linha => {
+        // Verifica se todas as células relevantes para este bloco estão vazias
+        const todasVazias = bloco.indices.every(i => {
+          const celula = linha[i];
+          return !celula || celula.trim() === "";
+        });
 
-  if (todasVazias) return; // pula a linha se todas as células estiverem vazias
+        if (todasVazias) return; // pula a linha se todas as células estiverem vazias
 
-  const tr = document.createElement("tr");
+        const tr = document.createElement("tr");
 
-  bloco.indices.forEach(i => {
-    const celula = linha[i] || "";
-    const td = document.createElement("td");
+        bloco.indices.forEach(i => {
+          const celula = linha[i] || "";
+          const td = document.createElement("td");
 
-   const linkMap = {
-  "https://21427851.hs-sites.com/pt-br/atendimento.onfly.com": "HELP CENTER",
-  "https://wa.me/553198779437": "WHATSAPP ONFLY",
-  "https://app.onfly.com.br/v2?_gl=1*105sr0j*_gcl_au*NjA0NjIzOTE4LjE3NDcxMzk3MzcuMTg2MzE1NzM5Ni4xNzQ3NzQ5NDkyLjE3NDc3NDk0OTE.#/home": "CHAT",
-  "https://suporte.onfly.com.br/tickets?offset=0": "CRIAR BUG",
-};
+          const linkMap = {
+            "https://21427851.hs-sites.com/pt-br/atendimento.onfly.com": "HELP CENTER",
+            "https://wa.me/553198779437": "WHATSAPP ONFLY",
+            "https://app.onfly.com.br/v2?_gl=1*105sr0j*_gcl_au*NjA0NjIzOTE4LjE3NDcxMzk3MzcuMTg2MzE1NzM5Ni4xNzQ3NzQ5NDkyLjE3NDc3NDk0OTE.#/home": "CHAT",
+            "https://suporte.onfly.com.br/tickets?offset=0": "CRIAR BUG",
+          };
 
-if (/^https?:\/\//i.test(celula)) {
-  const a = document.createElement("a");
-  a.href = celula;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
-  a.textContent = linkMap[celula] || celula; // usa nome amigável se existir
-  td.appendChild(a);
-}
- else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(celula)) {
-      const a = document.createElement("a");
-      a.href = `mailto:${celula}`;
-      a.textContent = celula;
-      td.appendChild(a);
-    } else {
-      td.textContent = celula;
-    }
+          if (/^https?:\/\//i.test(celula)) {
+            const a = document.createElement("a");
+            a.href = celula;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.textContent = linkMap[celula] || celula; // usa nome amigável se existir
+            td.appendChild(a);
+          }
+          else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(celula)) {
+            const a = document.createElement("a");
+            a.href = `mailto:${celula}`;
+            a.textContent = celula;
+            td.appendChild(a);
+          } else {
+            td.textContent = celula;
+          }
 
-    tr.appendChild(td);
-  });
+          tr.appendChild(td);
+        });
 
-  tbody.appendChild(tr);
-});
+        tbody.appendChild(tr);
+      });
 
 
       tabela.appendChild(tbody);

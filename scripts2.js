@@ -121,9 +121,9 @@ document.addEventListener("DOMContentLoaded", function () {
           { titulo: "PRODUTOS ONFLY", indices: [20, 21, 22, 23, 29] },
         ],
         blocos2: [{ titulo: "BUGS COM IMPACTO", indices: [2, 3, 4, 5, 6] }],
-        blocos3: [{ titulo: "HEALTH SCORE", indices: [ 3, 4, 5, 7] }, 
+        blocos3: [{ titulo: "HEALTH SCORE", indices: [3, 4, 5, 7] },
         { titulo: "ANÁLISE DE RISCO", indices: [8, 9] },],
-        
+
         blocos4: [{ titulo: "GMV", indices: [3, 4, 5, 8, 6, 7, 8] }],
         blocos5: [
           {
@@ -245,12 +245,12 @@ document.addEventListener("DOMContentLoaded", function () {
       else if (valorUpper === "CAIU") card.classList.add("caiu");
     }
 
-      // ALTA / BAIXA - esquema de cores
-  if (valorUpper === "ALTA") {
-    card.classList.add("alta");
-  } else if (valorUpper === "BAIXA") {
-    card.classList.add("baixa");
-  }
+    // ALTA / BAIXA - esquema de cores
+    if (valorUpper === "ALTA") {
+      card.classList.add("alta");
+    } else if (valorUpper === "BAIXA") {
+      card.classList.add("baixa");
+    }
 
 
     // GMV - Percentual
@@ -303,15 +303,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // FEEDBACKS - índices 6 e 7 com cores específicas para SIM (verde) e NÃO (amarelo)
-if (tituloBloco === "FEEDBACKS" && (indice === 6 || indice === 7)) {
-  if (valorUpper === "SIM") {
-    card.style.backgroundColor = "#28a745";  // verde
-    card.style.color = "white";
-  } else if (valorUpper === "NÃO" || valorUpper === "NAO") {
-    card.style.backgroundColor = "#ffc107";  // amarelo bootstrap
-    card.style.color = "black";
-  }
-}
+    if (tituloBloco === "FEEDBACKS" && (indice === 6 || indice === 7)) {
+      if (valorUpper === "SIM") {
+        card.style.backgroundColor = "#28a745";  // verde
+        card.style.color = "white";
+      } else if (valorUpper === "NÃO" || valorUpper === "NAO") {
+        card.style.backgroundColor = "#ffc107";  // amarelo bootstrap
+        card.style.color = "black";
+      }
+    }
 
 
     // PRODUTOS ONFLY

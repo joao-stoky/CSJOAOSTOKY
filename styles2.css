@@ -8,6 +8,7 @@
   --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transicao: all 0.3s ease;
 }
+
 /* (restante do CSS omitido para brevidade, mas incluirá tudo conforme a resposta acima) */
 
 /* Reset e Tipografia */
@@ -57,7 +58,7 @@ body {
   width: 100%;
   background-color: var(--cor-primaria);
   padding: 10px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -107,11 +108,13 @@ body {
 
 /* Cards */
 .card {
-  background-color: rgba(26, 115, 232, 0.05); /* Fundo azul claro translúcido */
-  border: 1px solid rgba(26, 115, 232, 0.15);  /* Borda sutil */
+  background-color: rgba(26, 115, 232, 0.05);
+  /* Fundo azul claro translúcido */
+  border: 1px solid rgba(26, 115, 232, 0.15);
+  /* Borda sutil */
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
@@ -132,8 +135,9 @@ body {
 }
 
 .card:hover {
-  background-color: rgba(26, 115, 232, 0.1); /* Efeito leve no hover */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  background-color: rgba(26, 115, 232, 0.1);
+  /* Efeito leve no hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -157,7 +161,9 @@ body {
 }
 
 /* Classes Condicionais */
-.subiu, .nao, .sim2 {
+.subiu,
+.nao,
+.sim2 {
   background-color: #2ecc71 !important;
   color: #ffffff !important;
 }
@@ -167,26 +173,32 @@ body {
   color: #ffffff !important;
 }
 
- .sim, .nao2 {
+.sim,
+.nao2 {
   background-color: #f1c40f !important;
   color: #ffffff !important;
 }
 
 .card-sim {
-  background-color: #fff3cd; /* amarelo claro */
-  color: #856404;            /* texto amarelo escuro */
+  background-color: #fff3cd;
+  /* amarelo claro */
+  color: #856404;
+  /* texto amarelo escuro */
   border: 1px solid #ffeeba;
 }
 
 .card-nao {
-  background-color: #d4edda; /* verde claro */
-  color: #2ecc71;            /* texto verde escuro */
+  background-color: #d4edda;
+  /* verde claro */
+  color: #2ecc71;
+  /* texto verde escuro */
   border: 1px solid #c3e6cb;
 }
 
 
 
-.f0, .fSim {
+.f0,
+.fSim {
   background-color: #2ecc71 !important;
   color: #ffffff !important;
 }
@@ -273,4 +285,3 @@ body {
   border-left: 5px solid #007acc;
   color: #004c80;
 }
-

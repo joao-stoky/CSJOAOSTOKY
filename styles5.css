@@ -1,36 +1,39 @@
 .bloco-aeroporto {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bloco-aeroporto h2 {
-  margin-top: 0;
-  font-size: 1.2em;
-  color: #1f2937;
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #1f2937;
 }
 
 #tabela-aeroportos {
-  display: flex;
-  flex-wrap: wrap;       /* permite quebra de linha */
-  justify-content: center; /* centraliza horizontalmente */
-  gap: 20px;             /* espaço entre os blocos */
+    display: flex;
+    flex-wrap: wrap;
+    /* permite quebra de linha */
+    justify-content: center;
+    /* centraliza horizontalmente */
+    gap: 20px;
+    /* espaço entre os blocos */
 }
 
 .bloco-aeroporto p {
-  margin: 8px 0;
+    margin: 8px 0;
 }
 
 .bloco-aeroporto a {
-  color: #007BFF;
-  text-decoration: none;
+    color: #007BFF;
+    text-decoration: none;
 }
 
 .bloco-aeroporto a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 body {
@@ -47,7 +50,7 @@ body {
     width: 100%;
     background-color: #0072ff;
     padding: 10px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -189,7 +192,8 @@ body.modo-escuro tr:hover {
         padding: 20px;
     }
 
-    th, td {
+    th,
+    td {
         padding: 12px 15px;
         font-size: 13px;
     }

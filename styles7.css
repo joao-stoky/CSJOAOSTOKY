@@ -1,0 +1,157 @@
+:root {
+    --cor-primaria: #0072ff;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --cor-card: #fff;
+    --cor-texto: #333;
+    --cor-fundo: #f9f9f9;
+    --border-radius: 10px;
+    --padding-card: 20px;
+}
+
+/* Reset básico e corpo */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.menu-superior {
+    width: 100%;
+    background-color: #0072ff;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-container {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.botao-menu {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.botao-menu:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Container geral - grid flexível com gap */
+#dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cada card tem fundo branco, sombra leve e cantos arredondados */
+.card {
+    background: var(--cor-card);
+    box-shadow: var(--sombra);
+    border-radius: var(--border-radius);
+    padding: var(--padding-card);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* para os cards terem altura igual na grid */
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    color: #0072ff;
+    margin-bottom: 30px;
+}
+
+/* Título do card */
+.card h2 {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 15px;
+    margin: 0 0 15px 0;
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container da tabela dentro do card */
+.tabela-container {
+    overflow-x: auto;
+    flex-grow: 1;
+    /* para a tabela ocupar todo o espaço restante */
+}
+
+/* Tabela estilizada */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 300px;
+    /* evita colunas muito pequenas */
+}
+
+/* Cabeçalho */
+th {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid #0072ff;
+}
+
+/* Células */
+td {
+    padding: 10px;
+    border: 1px solid #c9caca;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+/* Linhas pares com cor de fundo leve */
+tbody tr:nth-child(even) {
+    background-color: #f0f6ff;
+}
+
+/* Efeito hover na linha */
+
+
+/* Links dentro da tabela */
+td a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+
+
+/* Responsividade simples */
+@media (max-width: 380px) {
+    #dashboard {
+        grid-template-columns: 1fr;
+    }
+}
